@@ -1,4 +1,3 @@
-// import axios from require("axios");
 import axios from "axios";
 
 export const register = newUser => {
