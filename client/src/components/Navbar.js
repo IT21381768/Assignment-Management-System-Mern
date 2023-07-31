@@ -20,6 +20,35 @@ class Navbar extends Component {
                 </li>
             </ul>
         )
+        const userLink = (
+            <ul className="nav nav-tabs">
+                <li className="nav-item">
+                    <Link to="/profile" className="nav-link">User</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/uploads" className="nav-link">Assignment Submissions</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/assignments" className="nav-link">Assignment List</Link>
+                </li>
+                <li className="nav-item">
+                    <a href="" onClick={this.logout.bind(this)} className="nav-link">Logout</a>
+                </li>
+            </ul>
+        )
+        return (
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <Link to="/" className="navbar-brand">Assignment Submission Portal</Link>
+                <div className="collapse navbar-collapse" id="navbar1">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link to="/about" className="nav-link">About</Link>
+                        </li>
+                    </ul>
+                    {localStorage.usertoken ? userLink : loginRegLink}
+                </div>
+            </nav>
+        )
     }
 }
 
