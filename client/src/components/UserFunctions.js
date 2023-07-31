@@ -1,4 +1,5 @@
-import axios from require("axios");
+// import axios from require("axios");
+import axios from "axios";
 
 export const register = newUser => {
     return axios
@@ -28,4 +29,3 @@ export const login = user => {
         console.log(err);
         });
     }
-    
