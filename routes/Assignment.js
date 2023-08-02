@@ -15,16 +15,28 @@ assignmentRoutes.route('/add').post(function (req, res) {
     }
 );
 
+// assignmentRoutes.route('/').get(function (req, res) {
+//     Assignment.find(function(err, assignments){
+//     if(err){
+//         console.log(err);
+//     }
+//     else {
+//         res.json(assignments);
+//     }
+//     });
+// });
+
 assignmentRoutes.route('/').get(function (req, res) {
-    Assignment.find(function(err, assignments){
-    if(err){
-        console.log(err);
-    }
-    else {
-        res.json(assignments);
-    }
+  Assignment.find()
+    .then(assignments => {
+      res.json(assignments);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Error fetching assignments.');
     });
 });
+
 
 assignmentRoutes.route('/delete/:id').get(function (req, res) {
     Assignment.findByIdAndRemove({_id: req.params.id}, function(err, assignment){
