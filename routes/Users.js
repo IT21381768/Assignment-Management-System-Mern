@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user');
 
+
 users.use(cors());
 
 process.env.SECRET_KEY ='secret';
@@ -95,5 +96,7 @@ users.get('/profile',(req,res) => {
         res.send("Error" + err);
     })
 })
+
+
 
 module.exports = users;
