@@ -22,14 +22,14 @@ class Register extends Component{
     onSubmit(e){
         e.preventDefault()
 
-        const User={
+        const user={
             first_name:this.state.first_name,
             last_name:this.state.last_name,
             email:this.state.email,
             password:this.state.password
         }
 
-        register(User).then(res=>{
+        register(user).then(res=>{
             if(res){
                 this.props.history.push(`/login`)
             }
